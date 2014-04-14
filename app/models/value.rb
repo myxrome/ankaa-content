@@ -6,7 +6,7 @@ class Value < ActiveRecord::Base
   accepts_nested_attributes_for :promos, reject_if: :all_blank, allow_destroy: true
 
   def thumb
-    promos.first.image.url(:thumb)
+    promos.first.image.url(:thumb) if promos
   end
 
 end
