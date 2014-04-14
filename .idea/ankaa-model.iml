@@ -132,6 +132,7 @@
     <orderEntry type="library" scope="PROVIDED" name="builder (v3.1.4, ruby-2.1.1-p76) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="bundler (v1.6.0, ruby-2.1.1-p76) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="climate_control (v0.0.3, ruby-2.1.1-p76) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="cocaine (v0.5.4, ruby-2.1.1-p76) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-rails (v4.0.1, ruby-2.1.1-p76) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script (v2.2.0, ruby-2.1.1-p76) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="coffee-script-source (v1.7.0, ruby-2.1.1-p76) [gem]" level="application" />

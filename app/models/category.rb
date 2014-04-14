@@ -1,6 +1,5 @@
 class Category < ActiveRecord::Base
+  belongs_to :topics, inverse_of: :categories
   has_many :values, -> { order 'values.end_date' }, inverse_of: :category, dependent: :destroy
-  has_many :topic_categories, inverse_of: :category, dependent: :destroy
-  has_many :topics, through: :topic_categories
 
 end
