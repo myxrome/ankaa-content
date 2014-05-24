@@ -1,7 +1,6 @@
 class CreateTopics < ActiveRecord::Migration
   def change
     create_table :topics do |t|
-      t.integer :order
       t.string :name
       t.string :key
 
