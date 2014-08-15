@@ -22,3 +22,11 @@ tmp
 # Ignore RubyMine
 \.idea/workspace.xml
 
+# Ignore statistic models
+app/models/device.rb
+app/models/event.rb
+app/models/event_type.rb
+app/models/fact.rb
+app/models/session.rb
+app/models/concerns/statistic_active_record.rb
+
