@@ -3,6 +3,7 @@ class CreateTopics < ActiveRecord::Migration
     create_table :topics do |t|
       t.string :name
       t.string :key
+      t.boolean :active
 
       t.timestamps
     end

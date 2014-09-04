@@ -1,7 +1,7 @@
 class Topic < ActiveRecord::Base
-  has_many :categories, -> { order 'categories.order' }, inverse_of: :topic, dependent: :destroy
-  has_many :values, -> { where('values.active = true') },
-           through: :categories
+  include ActiveModel
+  has_many :categories, inverse_of: :topic, dependent: :destroy
+  has_many :values, through: :categories
   has_many :facts, as: :context
   after_initialize :init_key
 
