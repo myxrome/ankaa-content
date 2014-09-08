@@ -6,6 +6,7 @@ class CreateValues < ActiveRecord::Migration
       t.string :old_price
       t.string :new_price
       t.string :discount
+      t.string :source_url
       t.string :url
       t.boolean :active
 
@@ -13,5 +14,6 @@ class CreateValues < ActiveRecord::Migration
     end
 
     add_index :values, [:category_id, :active]
+    add_index :values, [:category_id, :source_url]
   end
 end
