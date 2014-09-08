@@ -1,14 +1,12 @@
 module ActiveModel
   extend ActiveSupport::Concern
 
-  included do
-    before_destroy :deactivate
+  def destroy
+    update_attribute :active, false
   end
 
-  def deactivate
-    self.active = false
-    save!
-    false
+  def destroy_from_db
+    self.class.superclass.instance_method(:destroy).bind(self).call
   end
 
 end

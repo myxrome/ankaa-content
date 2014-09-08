@@ -1,4 +1,5 @@
 class Value < ActiveRecord::Base
+  require 'concerns/active_model'
   include ActiveModel
 
   belongs_to :category, touch: true, inverse_of: :values

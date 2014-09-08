@@ -1,4 +1,5 @@
 class Partner < ActiveRecord::Base
+  require 'concerns/active_model'
   include ActiveModel
 
   has_attached_file :logo, url: '/content/l/:id/:hash.:extension', hash_secret: '933QPmmE2uEvGULxSw4jvWEh'

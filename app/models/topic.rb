@@ -1,4 +1,5 @@
 class Topic < ActiveRecord::Base
+  require 'concerns/active_model'
   include ActiveModel
   has_many :categories, -> { where active: true }, inverse_of: :topic, dependent: :destroy
   has_many :values, through: :categories
