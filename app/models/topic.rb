@@ -1,5 +1,5 @@
 class Topic < ActiveRecord::Base
-  has_many :categories, -> { where active: true, order :order }, inverse_of: :topic, dependent: :destroy
+  has_many :categories, -> { where(active: true).order(:order) }, inverse_of: :topic, dependent: :destroy
   has_many :facts, as: :context
   after_initialize :init_key
   after_create :reorder
