@@ -2,7 +2,7 @@ class Topic < ActiveRecord::Base
   require 'concerns/orderable'
   include Orderable
 
-  scope :neighbors, -> (topic) { all.order(:order) }
+  scope :neighbors, -> (topic) { all }
 
   def neighbors
     Topic.neighbors(self)
