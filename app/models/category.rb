@@ -1,6 +1,7 @@
 class Category < ActiveRecord::Base
-  require 'concerns/orderable'
   include Orderable
+  require 'concerns/raconcilable'
+  include Reconcilable
 
   scope :neighbors, -> (category) { where(topic_id: category.topic_id) }
 
@@ -11,5 +12,11 @@ class Category < ActiveRecord::Base
   belongs_to :topic, touch: true, inverse_of: :categories
   has_many :values, -> { where(active: true).order(:name) }, inverse_of: :category, dependent: :destroy
   has_many :facts, as: :context
+
+  def reconcile(params)
+    reconcile_child(values, params) { |value|
+      value.update_attribute(:active, false)
+    }
+  end
 
 end

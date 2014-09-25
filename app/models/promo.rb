@@ -10,4 +10,9 @@ class Promo < ActiveRecord::Base
                     hash_secret: '933QPmmE2uEvGULxSw4jvWEh'
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)
 
+  def reconcile(params)
+    params = (image.exists? ? params.except(:image) : params)
+    update(params)
+  end
+
 end

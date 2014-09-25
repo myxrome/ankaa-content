@@ -10,4 +10,8 @@ class Description < ActiveRecord::Base
     self.description_template = DescriptionTemplate.find_or_create_by caption: value
   end
 
+  def reconcile(params)
+    update(params)
+  end
+
 end

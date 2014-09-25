@@ -1,5 +1,4 @@
 class Topic < ActiveRecord::Base
-  require 'concerns/orderable'
   include Orderable
 
   scope :neighbors, -> (topic) { all }
