@@ -13,10 +13,11 @@ class Category < ActiveRecord::Base
   has_many :values, -> { where(active: true).order(:name) }, inverse_of: :category, dependent: :destroy
   has_many :facts, as: :context
 
-  def reconcile(params)
-    reconcile_child(values, params) { |value|
+  def reconcile(params, result)
+    reconcile_child(values, params, result) { |value|
       value.update_attribute(:active, false)
-    }
+    } if params
+    result
   end
 
 end
