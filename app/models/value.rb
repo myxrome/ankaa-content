@@ -14,7 +14,7 @@ class Value < ActiveRecord::Base
   end
 
   def reconcile(params)
-    update(params.except(:descriptions_attributes, :promos_attributes).merge(active: true))
+    update(params.except(:descriptions_attributes, :promos_attributes).merge(active: (!self.url.nil? && !self.url.empty?)))
     reconcile_child(descriptions, params[:descriptions_attributes], nil)
     reconcile_child(promos, params[:promos_attributes], nil)
   end
