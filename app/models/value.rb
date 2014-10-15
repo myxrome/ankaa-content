@@ -2,7 +2,7 @@ class Value < ActiveRecord::Base
   require 'concerns/raconcilable'
   include Reconcilable
 
-  belongs_to :category, touch: true, inverse_of: :values
+  belongs_to :category, inverse_of: :values
   has_many :descriptions, -> { order :order }, inverse_of: :value, dependent: :destroy
   accepts_nested_attributes_for :descriptions, reject_if: :all_blank, allow_destroy: true
   has_many :promos, -> { order :order }, inverse_of: :value, dependent: :destroy
@@ -14,9 +14,12 @@ class Value < ActiveRecord::Base
   end
 
   def reconcile(params)
-    update(params.except(:descriptions_attributes, :promos_attributes).merge(active: (!self.url.nil? && !self.url.empty?)))
-    reconcile_child(descriptions, params[:descriptions_attributes], nil)
-    reconcile_child(promos, params[:promos_attributes], nil)
+    assign_attributes(params.except(:descriptions_attributes, :promos_attributes))
+    assign_attributes(active: (!self.url.nil? && !self.url.empty?))
+    reconcile_children(self.descriptions, params[:descriptions_attributes], nil)
+    reconcile_children(self.promos, params[:promos_attributes], nil)
+    save! if changed?
+    self
   end
 
 end

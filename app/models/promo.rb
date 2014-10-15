@@ -11,8 +11,9 @@ class Promo < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)
 
   def reconcile(params)
-    params = (image.exists? ? params.except(:image) : params)
-    update(params)
+    assign_attributes(image.exists? ? params.except(:image) : params)
+    save! if changed?
+    self
   end
 
 end

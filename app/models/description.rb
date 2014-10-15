@@ -11,7 +11,9 @@ class Description < ActiveRecord::Base
   end
 
   def reconcile(params)
-    update(params)
+    assign_attributes(params)
+    save! if changed?
+    self
   end
 
 end
