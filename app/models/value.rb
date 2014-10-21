@@ -1,5 +1,4 @@
 class Value < ActiveRecord::Base
-  require 'concerns/raconcilable'
   include Reconcilable
 
   belongs_to :category, inverse_of: :values
