@@ -3,7 +3,6 @@ class Category < ActiveRecord::Base
   include Reconcilable
 
   scope :neighbors, -> (category) { where(topic_id: category.topic_id) }
-
   def neighbors
     Category.neighbors(self)
   end
