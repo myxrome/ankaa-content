@@ -4,6 +4,7 @@ class CreateTopics < ActiveRecord::Migration
       t.integer :topic_group_id
       t.integer :order
       t.string :name
+      t.string :displayed_name
       t.boolean :active
 
       t.timestamps
