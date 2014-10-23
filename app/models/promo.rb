@@ -5,7 +5,12 @@ class Promo < ActiveRecord::Base
     attachment.instance.value_id
   end
 
-  has_attached_file :image, styles: {xhdpi: ['100%', :png], hdpi: ['75%', :png], mdpi: ['50%', :png], ldpi: ['37%', :png], thumb: ['100x100', :png]},
+  has_attached_file :image, styles: {
+      xhdpi: {geometry: '100%', quality: 92, format: :jpg },
+      hdpi: {geometry: '75%', quality: 92, format: :jpg }
+      mdpi: {geometry: '50%', quality: 92, format: :jpg }
+      ldpi: {geometry: '37%', quality: 92, format: :jpg }
+      thumb: {geometry: '100x100', quality: 92, format: :jpg }
                     default_style: :xhdpi, url: '/content/p/:value_id/:id/:style/:hash.:extension',
                     hash_secret: '933QPmmE2uEvGULxSw4jvWEh'
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)
