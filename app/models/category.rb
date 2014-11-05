@@ -12,7 +12,7 @@ class Category < ActiveRecord::Base
   has_many :facts, as: :context
 
   def reconcile(miner, params)
-    reconcile_children(self.values, params, miner)
+    reconcile_children(self.values.where(active: true), params, miner)
   end
 
   protected

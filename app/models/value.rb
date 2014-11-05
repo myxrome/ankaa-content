@@ -16,7 +16,7 @@ class Value < ActiveRecord::Base
     assign_attributes(params.except(:descriptions_attributes, :promos_attributes))
     assign_attributes(active: (!self.url.nil? && !self.url.empty?))
     reconcile_children(self.descriptions, params[:descriptions_attributes], nil)
-    reconcile_children(self.promos, params[:promos_attributes], nil)
+    reconcile_children(self.promos, params[:promos_attributes].sort_by { |v| v[:order] }.first(7), nil)
     save! if changed?
     self
   end
