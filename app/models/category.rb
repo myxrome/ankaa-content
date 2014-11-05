@@ -8,24 +8,28 @@ class Category < ActiveRecord::Base
   end
 
   belongs_to :topic, inverse_of: :categories
-  has_many :values, -> { where(active: true).order(:name) }, inverse_of: :category, dependent: :destroy
+  has_many :values, -> { order(:name) }, inverse_of: :category, dependent: :destroy
   has_many :facts, as: :context
 
-  def reconcile(params)
-    reconcile_children(self.values, params, {new: [], update: [], delete: []})
+  def reconcile(miner, params)
+    reconcile_children(self.values, params, miner)
   end
 
   protected
   def on_create(child, callback_context)
-    callback_context[:new] << child.source
+    callback_context.on_new child
   end
 
   def on_update(child, callback_context)
-    callback_context[:update] << child.source
+    callback_context.on_update child
   end
 
   def on_delete(child, callback_context)
-    callback_context[:delete] << child.source
+    callback_context.on_delete child
+  end
+
+  def on_error(e, callback_context)
+    callback_context.on_error "#{e.backtrace.first}: #{e.message} (#{e.class})"
   end
 
   def delete(child)

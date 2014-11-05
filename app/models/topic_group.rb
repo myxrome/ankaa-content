@@ -6,7 +6,7 @@ class TopicGroup < ActiveRecord::Base
     TopicGroup.neighbors(self)
   end
 
-  has_many :topics, -> { where(active: true).order(:order) }, inverse_of: :topic_group, dependent: :destroy
+  has_many :topics, -> { order(:order) }, inverse_of: :topic_group, dependent: :destroy
 
   after_initialize :init_key
 

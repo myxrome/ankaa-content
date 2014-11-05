@@ -7,7 +7,7 @@ class Topic < ActiveRecord::Base
   end
 
   belongs_to :topic_group, inverse_of: :topics
-  has_many :categories, -> { where(active: true).order(:order) }, inverse_of: :topic, dependent: :destroy
+  has_many :categories, -> { order(:order) }, inverse_of: :topic, dependent: :destroy
   has_many :facts, as: :context
 
 end
