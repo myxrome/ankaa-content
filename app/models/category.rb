@@ -11,8 +11,12 @@ class Category < ActiveRecord::Base
   has_many :values, -> { order(:name) }, inverse_of: :category, dependent: :destroy
   has_many :facts, as: :context
 
-  def reconcile(miner, params)
-    reconcile_children(self.values.where(active: true), params, miner)
+  def reconcile(params, callback_context)
+    reconcile_associations(params, callback_context)
+  end
+
+  def reconcile_associations(params, callback_context)
+    reconcile_association(self.values, params, callback_context)
   end
 
   protected
@@ -33,7 +37,7 @@ class Category < ActiveRecord::Base
   end
 
   def delete(child)
-    child.update_attribute(:active, false)
+    child.update_attribute(:active, false) if child.active?
   end
 
 end

@@ -9,16 +9,34 @@ class Value < ActiveRecord::Base
   has_many :facts, as: :context
 
   def thumb
-    promos.first.image.url(:thumb) if promos
+    if promos
+      first = promos.first
+      first.image.url(:thumb) if first
+    end
   end
 
-  def reconcile(params)
+  def reconcile(params, callback_context)
     assign_attributes(params.except(:descriptions_attributes, :promos_attributes))
     assign_attributes(active: (!self.url.nil? && !self.url.empty?))
-    reconcile_children(self.descriptions, params[:descriptions_attributes], nil)
-    reconcile_children(self.promos, params[:promos_attributes].sort_by { |v| v[:order] }.first(7), nil)
-    save! if changed?
     self
+  end
+
+  def reconcile_associations(params, callback_context)
+    reconcile_association(self.descriptions, params[:descriptions_attributes], callback_context)
+    reconcile_association(self.promos, params[:promos_attributes].sort_by { |v| v[:order] }.first(7), callback_context)
+  end
+
+  protected
+  def on_create(child, callback_context)
+    category.on_update(self, callback_context)
+  end
+
+  def on_update(child, callback_context)
+    category.on_update(self, callback_context)
+  end
+
+  def on_delete(child, callback_context)
+    category.on_update(self, callback_context)
   end
 
 end

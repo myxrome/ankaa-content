@@ -1,4 +1,6 @@
 class Promo < ActiveRecord::Base
+  include Reconcilable
+
   belongs_to :value, touch: true, inverse_of: :promos
 
   Paperclip.interpolates :value_id do |attachment, style|
@@ -15,9 +17,8 @@ class Promo < ActiveRecord::Base
                     hash_secret: '933QPmmE2uEvGULxSw4jvWEh'
   validates_attachment_content_type :image, :content_type => %w(image/jpeg image/jpg image/png)
 
-  def reconcile(params)
+  def reconcile(params, callback_context)
     assign_attributes(image.exists? ? params.except(:image) : params)
-    save! if changed?
     self
   end
 
