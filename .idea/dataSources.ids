@@ -9,4 +9,7 @@
   <data-source source="LOCAL" name="Rails ankaa-model: statistic_development" uuid="1382da96-ae6c-4b3c-9e2e-8743958d56fe">
     <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
   </data-source>
+  <data-source source="LOCAL" name="Rails ankaa-model: statistic_production" uuid="1fb8d391-36fb-4781-a3c6-614e133ae1c9">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

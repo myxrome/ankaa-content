@@ -31,3 +31,7 @@ app/models/fact_detail.rb
 app/models/session.rb
 app/models/concerns/statistic_active_record.rb
 
+# Ignore env config file
+config/application.yml
+
+
