@@ -9,3 +9,4 @@ gem 'pg'
 # Use paperclip for attachments
 gem 'paperclip'
 
+gem 'figaro'
