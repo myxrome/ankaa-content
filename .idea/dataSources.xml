@@ -5,66 +5,49 @@
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://myankaa-storage.local:5432/ankaadb</jdbc-url>
-      <user-name>ankaa</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe7dff3dfebdfe4dfe1dfebdfebdff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-model: development" uuid="3902e164-7fef-471c-adf9-3d75eb8b1bf8">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/ankaadb</jdbc-url>
-      <user-name>ankaa</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe7dff3dfebdfe4dfe1dfebdfebdff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-model: statistic_development" uuid="1382da96-ae6c-4b3c-9e2e-8743958d56fe">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/statisticdb</jdbc-url>
-      <user-name>statistic</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dffedfebdffedfe3dff9dffedfe3dfe9dff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-model: statistic_production" uuid="1fb8d391-36fb-4781-a3c6-614e133ae1c9">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://statistic-db.local:5432/statisticdb</jdbc-url>
-      <user-name>statistic</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dffedfebdffedfe3dff9dffedfe3dfe9dff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-content: development" uuid="b79694a9-51ac-4c65-b26e-cf46d32d0048">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/ankaadb</jdbc-url>
-      <user-name>ankaa</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe7dff3dfebdfe4dfe1dfebdfebdff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-content: statistic_development" uuid="7c47c2bf-2388-4ed9-a1e0-ea493961df50">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/statisticdb</jdbc-url>
-      <user-name>statistic</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dffedfebdffedfe3dff9dffedfe3dfe9dff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-content: production" uuid="c012d898-83f6-4e86-88b2-743edf0ca42c">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://myankaa-storage.local:5432/ankaadb</jdbc-url>
-      <user-name>ankaa</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddfe7dff3dfebdfe4dfe1dfebdfebdff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
     <data-source source="LOCAL" name="Rails ankaa-content: statistic_production" uuid="0d9b075b-99b1-46ac-837f-a8740d489d8c">
       <driver-ref>postgresql</driver-ref>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://statistic-db.local:5432/statisticdb</jdbc-url>
-      <user-name>statistic</user-name>
-      <user-password>df96df8fdf97df8adfefdfe4dffcdff1df8ddff9dffedfebdffedfe3dff9dffedfe3dfe9dff5dfeedfe8dff5dffadfebdff9dff9dffddfe5dff8dfeedf8ddff7df8adf8fdf94</user-password>
       <libraries />
     </data-source>
   </component>
 </project>
-
