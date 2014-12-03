@@ -32,7 +32,7 @@ class Category < ActiveRecord::Base
   end
 
   def on_error(e, callback_context)
-    callback_context.on_error "#{e.backtrace.first}: #{e.message} (#{e.class})"
+    callback_context.on_error "#{e.backtrace.first}: #{e.message} (#{e.class}) cause: #{e.cause}"
   end
 
   protected
