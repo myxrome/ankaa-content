@@ -19,7 +19,6 @@ class Category < ActiveRecord::Base
     reconcile_association(self.values, params, callback_context)
   end
 
-  protected
   def on_create(child, callback_context)
     callback_context.on_new child
   end
@@ -36,6 +35,7 @@ class Category < ActiveRecord::Base
     callback_context.on_error "#{e.backtrace.first}: #{e.message} (#{e.class})"
   end
 
+  protected
   def delete(child)
     child.update_attribute(:active, false) if child.active?
   end

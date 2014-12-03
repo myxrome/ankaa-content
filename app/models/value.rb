@@ -26,7 +26,6 @@ class Value < ActiveRecord::Base
     reconcile_association(self.promos, params[:promos_attributes].sort_by { |v| v[:order] }.first(7), callback_context)
   end
 
-  protected
   def on_create(child, callback_context)
     category.on_update(self, callback_context)
   end

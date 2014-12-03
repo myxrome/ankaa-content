@@ -7,6 +7,19 @@ module Reconcilable
   def reconcile_associations(params, callback_context)
   end
 
+  def on_create(child, callback_context)
+  end
+
+  def on_update(child, callback_context)
+  end
+
+  def on_delete(child, callback_context)
+  end
+
+  def on_error(e, callback_context)
+    raise e
+  end
+
   protected
   def reconcile_association(existing, params, callback_context)
     (existing.ids.to_set - params.map { |p|
@@ -34,19 +47,6 @@ module Reconcilable
         on_error(e, callback_context)
       end
     }
-  end
-
-  def on_create(child, callback_context)
-  end
-
-  def on_update(child, callback_context)
-  end
-
-  def on_delete(child, callback_context)
-  end
-
-  def on_error(e, callback_context)
-    raise e
   end
 
   def delete(child)
