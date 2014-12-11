@@ -1,5 +1,5 @@
 class TopicGroup < ActiveRecord::Base
-  include Orderable
+  include Order
 
   scope :neighbors, -> (topic_group) { all }
   def neighbors

@@ -1,10 +1,10 @@
-module Orderable
+module Order
   extend ActiveSupport::Concern
   included do
-    after_create :reorder
+    after_create :init_order
   end
 
-  def reorder
+  def init_order
     update_attribute(:order, (neighbors.maximum(:order) || 0) + 1) unless self.order
   end
 
