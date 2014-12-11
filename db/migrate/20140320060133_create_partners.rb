@@ -4,6 +4,7 @@ class CreatePartners < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.attachment :logo
+      t.string :file_key
       t.boolean :active
 
       t.timestamps

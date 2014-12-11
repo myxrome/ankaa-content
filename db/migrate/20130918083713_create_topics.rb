@@ -9,5 +9,8 @@ class CreateTopics < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :topics, [:topic_group_id, :active, :updated_at]
+    add_index :topics, [:topic_group_id, :order]
   end
 end

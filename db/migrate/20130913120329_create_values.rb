@@ -13,7 +13,7 @@ class CreateValues < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :values, [:category_id, :active]
+    add_index :values, [:category_id, :active, :updated_at]
     add_index :values, [:category_id, :source]
   end
 end

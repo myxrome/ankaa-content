@@ -9,5 +9,6 @@ class CreateTopicGroups < ActiveRecord::Migration
       t.timestamps
     end
     add_index :topic_groups, :key, :unique => true
+    add_index :topic_groups, [:key, :updated_at]
   end
 end

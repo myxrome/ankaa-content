@@ -10,7 +10,7 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :categories, [:topic_id, :active, :updated_at]
     add_index :categories, [:topic_id, :order]
-    add_index :categories, [:topic_id, :active]
   end
 end
