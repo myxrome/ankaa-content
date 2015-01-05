@@ -3,14 +3,14 @@ class CreateCategories < ActiveRecord::Migration
     create_table :categories do |t|
       t.integer :topic_id
       t.integer :order
+      t.boolean :active
       t.string :name
       t.string :displayed_name
-      t.boolean :active
 
       t.timestamps
     end
 
-    add_index :categories, [:topic_id, :active, :updated_at]
-    add_index :categories, [:topic_id, :order]
+    add_index :categories, [:topic_id, :active]
+    add_index :categories, [:topic_id, :updated_at]
   end
 end
