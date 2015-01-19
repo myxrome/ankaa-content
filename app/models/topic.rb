@@ -3,4 +3,9 @@ class Topic < ActiveRecord::Base
   has_many :categories, -> { order(:order) }, inverse_of: :topic, dependent: :destroy
   has_many :facts, as: :context
 
+  def destroy
+    raise 'Cannot delete Topic with active Categories' unless categories.where(active: true).count == 0
+    super
+  end
+
 end
