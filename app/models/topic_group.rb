@@ -3,14 +3,16 @@ class TopicGroup < ActiveRecord::Base
   has_many :facts, as: :context
 
   after_initialize :init_key
+  before_destroy :have_active_topics?
 
   def init_key
     self.key ||= SecureRandom.hex
   end
 
-  def destroy
-    raise 'Cannot delete Topic Group with active Topics' unless topics.where(active: true).count == 0
-    super
+  private
+  def have_active_topics?
+    errors.add(:base, 'Cannot delete Category with active Values') unless topics.where(active: true).count == 0
+    errors.blank?
   end
 
 end
