@@ -7,9 +7,9 @@ class CreateValues < ActiveRecord::Migration
       t.attachment :thumb
       t.string :file_key
       t.string :name
-      t.string :old_price
-      t.string :new_price
-      t.string :discount
+      t.integer :old_price
+      t.integer :new_price
+      t.integer :discount
       t.string :url
 
       t.timestamps
