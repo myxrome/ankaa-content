@@ -7,7 +7,7 @@ class Value < ActiveRecord::Base
   has_many :promos, -> { order :order }, inverse_of: :value, dependent: :destroy
   accepts_nested_attributes_for :promos, reject_if: :all_blank, allow_destroy: true
   has_many :facts, as: :context
-
+  before_save :init_discount
 
   has_attached_file :thumb,
                     styles: {
@@ -22,5 +22,9 @@ class Value < ActiveRecord::Base
                     url: '/content/v/:id/thumb/:style/:file_key.:extension'
 
   validates_attachment_content_type :thumb, :content_type => %w(image/jpeg image/jpg image/png)
+
+  def init_discount
+    self.discount ||= (self.new_price * 100) / self.old_price
+  end
 
 end
