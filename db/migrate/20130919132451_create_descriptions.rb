@@ -7,8 +7,6 @@ class CreateDescriptions < ActiveRecord::Migration
       t.string :source
       t.string :caption
       t.text :text
-      t.boolean :red
-      t.boolean :bold
 
       t.timestamps
     end
