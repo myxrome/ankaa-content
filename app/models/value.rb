@@ -24,7 +24,7 @@ class Value < ActiveRecord::Base
   validates_attachment_content_type :thumb, :content_type => %w(image/jpeg image/jpg image/png)
 
   def init_discount
-    self.discount ||= (self.new_price * 100) / self.old_price
+    self.discount ||= 100 - ((self.new_price * 100) / self.old_price)
   end
 
 end
