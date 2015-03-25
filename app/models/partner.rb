@@ -1,6 +1,9 @@
 class Partner < ActiveRecord::Base
   include FileKey
 
+  has_many :values, inverse_of: :partner
+  has_many :facts, as: :context
+
   has_attached_file :logo,
                     styles: {
                         x100: {geometry: '50x50', quality: 92, format: :jpg},
@@ -13,6 +16,5 @@ class Partner < ActiveRecord::Base
                     default_style: :x300,
                     url: '/content/p/:id/logo/:style/:file_key.:extension'
   validates_attachment_content_type :logo, :content_type => %w(image/jpeg image/jpg image/png)
-  has_many :facts, as: :context
 
 end
