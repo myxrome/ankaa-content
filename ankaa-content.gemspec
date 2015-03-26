@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,db,lib}/**/*', 'Rakefile', 'README.rdoc']
 
-  s.add_dependency 'rails', '~> 4.1.1'
+  s.add_dependency 'rails'
   s.add_dependency 'paperclip'
   s.add_dependency 'ankaa-statistic'
 
